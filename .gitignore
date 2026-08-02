@@ -1,0 +1,30 @@
+# --- Sources et binaires de produits (jamais versionnes : licence editeur, poids) ---
+*.msi
+*.exe
+*.msp
+*.mst
+*.intunewin
+*.cab
+*.zip
+*.7z
+*.rar
+
+# --- Secrets : rien de tout cela ne doit entrer dans le depot ---
+*.kdbx
+*.pfx
+*.key
+*.pem
+.env
+.env.*
+cle_installation.txt
+*licence*.xlsx
+*license*.xlsx
+*backup_codes*
+
+# --- Sorties et bruit local ---
+logs/
+*.log
+out/
+temp/
+Thumbs.db
+desktop.ini
