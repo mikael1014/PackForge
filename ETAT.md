@@ -1,10 +1,10 @@
 ---
 projet: PackForge
 statut: actif
-maj: 2026-08-02
+maj: 2026-08-09
 version: 1.0.0
 ports: []
-bloque_par: mikael
+bloque_par: "mikael: DECISION - versionner ou non les binaires portables de bin/ (dependance a l'espace d'un ex-client) ; et CN du certificat de signature Authenticode (Mikael Corp ?)"
 git: oui
 ---
 
