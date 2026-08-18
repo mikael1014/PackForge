@@ -1,7 +1,7 @@
 ---
 projet: PackForge
 statut: actif
-maj: 2026-08-09
+maj: 2026-08-10
 version: 1.0.0
 ports: []
 bloque_par: "mikael: DECISION - versionner ou non les binaires portables de bin/ (dependance a l'espace d'un ex-client) ; et CN du certificat de signature Authenticode (Mikael Corp ?)"
@@ -82,3 +82,4 @@ git: oui
 | 02/08/2026 | Cartographie de l'outillage réel → `Centre de Packaging\BOITE-A-OUTILS.md` |
 | 02/08/2026 | **Création de PackForge** : socle P1 posé, générisé et testé (10 vérifications) |
 | 02/08/2026 | v1.1.0 — preset renommé `DonneesLog`, **purge complète des références nominatives client**, dépôt poussé sur GitHub privé |
+| **10/08/2026** | Checklist **1.1** : nouveau § 7 « Quand ce n'est pas le package — le poste ment » (client SCCM dont le namespace `root\ccm` existe mais dont les classes `SMS_Client`/`SMS_Authority` sont vides). Cas réel de mission, **versé sans nom de client ni de poste**, conformément à la règle du dépôt |

@@ -1,7 +1,8 @@
 # CHECKLIST PACKAGING — de la source au package validé
 
 > Une page, à parcourir **dans l'ordre**, pour chaque package. Chaque case cochée est une chose
-> qui ne reviendra pas vous mordre en production. Version 1.0 — 02/08/2026.
+> qui ne reviendra pas vous mordre en production. Version **1.1 — 10/08/2026**
+> *(1.1 : ajout du § 7 « Quand ce n'est pas le package — le poste ment »).*
 
 ---
 
@@ -92,6 +93,31 @@
 - [ ] ⚠️ **Ne jamais modifier la règle de détection d'un package déjà déployé** pour forcer une
       réinstallation : cela produit une boucle de réinstallation permanente. Publier une **R2** à la place.
 - [ ] Fiche `Packages.md` mise à jour : date du test end-to-end + résultat.
+
+## 7. Quand ce n'est pas le package — le poste ment
+
+> Avant de reprendre un package qui « échoue chez certains », vérifier que **l'agent de
+> déploiement lui-même est sain**. Un poste peut présenter tous les signes extérieurs d'un client
+> en bon état et n'en avoir aucun en état de fonctionner.
+
+- [ ] **Ne jamais conclure « client SCCM installé » sur la seule présence du namespace WMI.**
+      Cas réel rencontré en mission : `root\ccm` **présent**, mais les classes `SMS_Client` et
+      `SMS_Authority` **absentes ou vides** — provider WMI ConfigMgr absent ou corrompu. Le poste
+      passait tous les contrôles de surface et ne recevait plus rien.
+      ```powershell
+      # Le namespace existe-t-il ? (c'est ce qui ment)
+      Get-CimInstance -Namespace "root" -ClassName "__NAMESPACE" | Where-Object Name -eq "ccm"
+      # Le client répond-il vraiment ? (c'est ce qui tranche)
+      Get-CimInstance -Namespace "root\ccm" -ClassName SMS_Client
+      Get-CimInstance -Namespace "root\ccm" -ClassName SMS_Authority | Select-Object Name, CurrentManagementPoint
+      ```
+      **Verdict** : la 1re commande répond et les deux suivantes échouent ou renvoient vide →
+      client corrompu, à réparer ou réinstaller. Ce n'est pas un sujet de packaging.
+- [ ] Même principe côté Intune : un dossier `IntuneManagementExtension\Logs` présent ne prouve
+      pas que le service tourne — regarder la **date du dernier log**, pas son existence.
+- [ ] Principe général, valable partout : **tester ce que le composant FAIT, jamais ce qu'il a
+      l'air d'être.** Une présence (dossier, clé, namespace, processus nommé) est un indice ;
+      seule une réponse fonctionnelle est une preuve.
 
 ---
 
