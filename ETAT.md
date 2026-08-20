@@ -1,10 +1,10 @@
 ---
 projet: PackForge
 statut: actif
-maj: 2026-08-10
+maj: 2026-08-20
 version: 1.0.0
 ports: []
-bloque_par: "mikael: DECISION - versionner ou non les binaires portables de bin/ (dependance a l'espace d'un ex-client) ; et CN du certificat de signature Authenticode (Mikael Corp ?)"
+bloque_par: "aucun - TRANCHE le 20/08/2026 : (1) les binaires portables de bin/ NE SONT PAS versionnes - un binaire entre dans l'historique y reste meme supprime ensuite ; ils restent dans C:/Donnees/bin, proprietaire des binaires partages. (2) CN du certificat Authenticode = "Mikael Corp" (forme ASCII) : PackForge est le socle technique de l'offre Centre de Packaging, donc un travail POUR LA SOCIETE - cas ou la signature Mikael Corp est eligible, ici confirmee explicitement."
 git: oui
 ---
 
