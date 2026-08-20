@@ -4,7 +4,7 @@ statut: actif
 maj: 2026-08-20
 version: 1.0.0
 ports: []
-bloque_par: "aucun - TRANCHE le 20/08/2026 : (1) les binaires portables de bin/ NE SONT PAS versionnes - un binaire entre dans l'historique y reste meme supprime ensuite ; ils restent dans C:/Donnees/bin, proprietaire des binaires partages. (2) CN du certificat Authenticode = "Mikael Corp" (forme ASCII) : PackForge est le socle technique de l'offre Centre de Packaging, donc un travail POUR LA SOCIETE - cas ou la signature Mikael Corp est eligible, ici confirmee explicitement."
+bloque_par: "aucun - TRANCHE le 20/08/2026 : (1) les binaires portables de bin/ NE SONT PAS versionnes - un binaire entre dans l'historique y reste meme supprime ensuite ; ils restent dans C:/Donnees/bin, proprietaire des binaires partages. (2) CN du certificat Authenticode = Mikael Corp (forme ASCII) : PackForge est le socle technique de l'offre packaging, donc un travail POUR LA SOCIETE - cas ou cette signature est eligible, ici confirmee explicitement."
 git: oui
 ---
 
@@ -52,9 +52,9 @@ git: oui
 | **Template wrapper EXE** (Inno / NSIS) | — | ~2 h | Tout produit non-MSI reste à packager à la main |
 | **Bibliothèque de détections Intune** (`Detect-*.ps1` : ProductCode, fichier+version, registre 64/32) | — | ~2 h | Les briques existent, dispersées ; rien de prêt à coller dans Intune |
 | **Outils de diagnostic** (Get-MsiProductInfo, ListAllApps, analyse logs IME, Network-Diag, Diag-AAD_TPM) | — | ~3 h | Le kit jour 1 reste incomplet (5 des 13 éléments) |
-| **Rapatrier les binaires portables** (`bin\` : CMTrace, Orca, innounp, Win32 Content Prep Tool, Sysinternals) | **Mikaël** — décision : versionner des binaires ou pas | décision | Dépendance persistante au OneDrive d'un ex-client |
+| ~~**Rapatrier les binaires portables**~~ (`bin\` : CMTrace, Orca, innounp, Win32 Content Prep Tool, Sysinternals) | ✅ **Tranché le 20/08/2026** | — | **Non versionnés** : un binaire entré dans un historique git y reste, même supprimé ensuite. Ils vivent dans `C:\Donnees\bin`, propriétaire des binaires partagés. |
 | **Page « mon standard vs PSADT »** | — | 1 h | Aucune réponse prête quand un client impose PSADT |
-| **Signature Authenticode des scripts** | **Mikaël** — décision sur le certificat (CN `Mikael Corp` ?) | décision | Blocage possible en environnement durci (AppLocker) |
+| **Signature Authenticode des scripts** | ✅ **CN tranché le 20/08/2026** : `Mikael Corp` (forme ASCII) | reste à générer/acheter le certificat | Blocage possible en environnement durci (AppLocker) |
 
 ---
 

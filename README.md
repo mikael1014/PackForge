@@ -4,9 +4,9 @@
 > (Intune / SCCM) chez **n'importe quel client**, extrait de 2 ans et demi de production réelle
 > et débarrassé de toute convention propre à un client donné.
 >
-> **Ce que ce n'est pas** : le dossier commercial du Centre de Packaging (pitch, prospects,
-> offre) — celui-là vit dans `programation\Centre de Packaging`. Ici, il n'y a que du code
-> et des procédures.
+> **Ce que ce n'est pas** : un dossier commercial (pitch, offre, prospects). Ici, il n'y a que
+> du code et des procédures — c'est justement ce qui rend ce dépôt ouvrable devant n'importe
+> qui, sans rien avoir à masquer.
 
 ---
 
